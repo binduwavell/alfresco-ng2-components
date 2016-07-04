@@ -48,6 +48,10 @@ export class AlfrescoAuthenticationService {
         return this.alfrescoApi;
     }
 
+    getToken(): any {
+        return this.alfrescoApi.getToeken();
+    }
+
     /**
      * The method return tru if the user is logged in
      * @returns {boolean}

@@ -29,6 +29,15 @@ export class ContentColumnModel {
     type: string = ContentColumnModel.TYPE_TEXT;
     format: string = 'medium';
 
+    static getSupportedTypes(): string[] {
+        return [
+            ContentColumnModel.TYPE_TEXT,
+            ContentColumnModel.TYPE_DATE,
+            ContentColumnModel.TYPE_IMAGE
+            // ContentColumnModel.TYPE_NUMBER
+        ];
+    }
+
     constructor(obj?: any) {
         if (obj) {
             this.title = obj.title;
@@ -38,14 +47,5 @@ export class ContentColumnModel {
             this.type = obj.type || ContentColumnModel.TYPE_TEXT;
             this.format = obj.format;
         }
-    }
-
-    static getSupportedTypes(): string[] {
-        return [
-            ContentColumnModel.TYPE_TEXT,
-            ContentColumnModel.TYPE_DATE,
-            ContentColumnModel.TYPE_IMAGE
-            // ContentColumnModel.TYPE_NUMBER
-        ];
     }
 }

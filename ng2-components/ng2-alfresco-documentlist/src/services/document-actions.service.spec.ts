@@ -39,7 +39,7 @@ describe('DocumentActionsService', () => {
 
     beforeEach(() => {
         alfrescoService = new AlfrescoServiceMock();
-        contentService = new AlfrescoContentService(null, null);
+        contentService = new AlfrescoContentService(null);
         service = new DocumentActionsService(alfrescoService, contentService);
     });
 

@@ -41,7 +41,7 @@ describe('AlfrescoService', () => {
 
         settingsService = new AlfrescoSettingsService();
         authService = new AlfrescoAuthenticationService(settingsService);
-        contentService = new AlfrescoContentService(settingsService, authService);
+        contentService = new AlfrescoContentService(authService);
         service = new AlfrescoService(settingsService, authService, contentService);
     });
 
