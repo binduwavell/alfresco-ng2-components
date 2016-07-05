@@ -46,7 +46,7 @@ import {
                     operations.
                </div>
                <hr>
-        <div class="container">
+        <div class="container" *ngIf="authenticated">
 
             <alfresco-document-list-breadcrumb
                     [currentFolderPath]="currentPath"
@@ -103,7 +103,7 @@ import {
                             title="{{'DOCUMENT_LIST.ACTIONS.FOLDER.DELETE' | translate}}"
                             handler="delete">
                     </content-action>
-                    
+
                     <!-- document actions -->
                     <content-action
                             target="document"
@@ -167,11 +167,6 @@ class DocumentListDemo implements OnInit {
         private documentActions: DocumentActionsService) {
 
         alfrescoSettingsService.host = this.host;
-
-        if (localStorage.getItem('token')) {
-            this.token = localStorage.getItem('token');
-        }
-
         translation.addTranslationFolder();
         documentActions.setHandler('my-handler', this.myDocumentActionHandler.bind(this));
     }
@@ -205,6 +200,7 @@ class DocumentListDemo implements OnInit {
         this.authService.login('admin', 'admin').subscribe(
             token => {
                 console.log(token);
+                this.token = token;
                 this.authenticated = true;
             },
             error => {
